@@ -24,3 +24,27 @@ Here is a rough example in photo:
 <p align="center">
   <img src="example.png" alt="Описание" width="300">
 </p>
+
+# Algorithm DDA (Digital Differential Analyzer)
+```
+  void dda(float x0, float y0, float x1, float y1) {
+  float dx = x1 - x0;
+  float dy = y1 - y0;
+  float steps = fabs(dx) > fabs(dy) ? fabs(dx) : fabs(dy);
+  float step_x = dx / steps;
+  float step_y = dy / steps;
+  for (int i=0; i<(int)round(steps); i++) {
+    int px = (int)round(x0);
+    int py = (int)round(y0);
+    if (x0>=0 && x0<HW && y0>=0 && y0<HW) buf[py][px]='1';
+    x0+=step_x;
+    y0+=step_y;
+  }
+}
+```
+This algorithm uses floating-point numbers and is excellent for understanding the fundamentals of drawing lines in pixels.
+
+###### Yes, the result is almost the same as that of Bresenham's algorithm, but DDA is not optimized.
+<p align="center">
+  <img src="example.png" alt="Описание" width="300">
+</p>
