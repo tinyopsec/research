@@ -22,7 +22,7 @@ A repository where I store information I know and explain using photographs.
 This algorithm draws a line without using complex mathematical calculations and employs only integers.
 Here is a rough example in photo:
 <p align="center">
-  <img src="example.png" alt="Описание" width="300">
+  <img src="example.png" alt="bransanham's line algorithm" width="300">
 </p>
 
 # Algorithm DDA (Digital Differential Analyzer)
@@ -46,5 +46,29 @@ This algorithm uses floating-point numbers and is excellent for understanding th
 
 ###### Yes, the result is almost the same as that of Bresenham's algorithm, but DDA is not optimized.
 <p align="center">
-  <img src="example.png" alt="Описание" width="300">
+  <img src="example.png" alt="dda" width="300">
+</p>
+
+# Midpoint circle algorithm
+```
+void midpoint(int px, int py, int r) {
+  int x=0, y=r, err=1-r;
+  while(x<=y) {
+    draw_pixel(px+x,px+y);
+    draw_pixel(px+x,px-y);
+    draw_pixel(px-x,px+y);
+    draw_pixel(px-x,px-y);
+    draw_pixel(px+y,px+x);
+    draw_pixel(px+y,px-x);
+    draw_pixel(px-y,px+x);
+    draw_pixel(px-y,px-x);
+    x++;
+    if (err<0) err+=2*x+1;
+    else { err+=2*(x-y)+1; y--; }
+  }
+}
+```
+In computer graphics, the midpoint circle algorithm is a method used to determine the points required to rasterize a circle. It is a generalization of Bresenham's line algorithm.
+<p align="center">
+  <img src="example1.png" alt="Midpoint algorithm" width="300">
 </p>
