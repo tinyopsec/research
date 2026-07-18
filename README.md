@@ -20,4 +20,7 @@ A repository where I store information I know and explain using photographs.
 ```
 
 This algorithm draws a line without using complex mathematical calculations and employs only integers.
-Here is a rough example in photos:
+Here is a rough example in photo:
+<p align="center">
+  <img src="example.png" alt="Описание" width="300">
+</p>
